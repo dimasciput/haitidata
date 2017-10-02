@@ -205,6 +205,8 @@ services:
     ports:
       - "33308:8080"
     network_mode: "bridge"
+    volumes:
+      - ./geoserver_data:/geoserver_data/data
 
   geoserver_data:
     image: geonode/geoserver_data:2.10.x

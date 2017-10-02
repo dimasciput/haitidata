@@ -15,10 +15,9 @@ services:
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASS: docker
-  django:
-    build: ./django_haitadata
-    external_links:
-    - postgis:postgis
-    tty: true
+  geowebcache:
+    build: ./geowebcache
     ports:
-    - 33208:8080/tcp
+    - 33108:8080/tcp
+    volumes:
+    - ../../geoserver_data/gwc:/usr/local/tomcat/temp/geowebcache
