@@ -25,7 +25,7 @@ RUN if [ ! -f /tmp/resources/geoserver.war ]; then \
     && rm -rf /tmp/geoserver
 
 # Custom settings for envronment variables
-ENV GEOSERVER_OPTS "-Xms2G -Xmx4G -XX:+UseG1GC"
+ENV GEOSERVER_OPTS "-Xms2G -Xmx32G -XX:+UseG1GC -XX:+UseStringDeduplicationJVM"
 
 #-XX:+UseConcMarkSweepGC use this rather than parallel GC?
 ENV JAVA_OPTS "$JAVA_OPTS $GEOSERVER_OPTS "
