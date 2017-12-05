@@ -1,4 +1,4 @@
-FROM tomcat:9-jre8
+FROM tomcat:8.5-jre8
 MAINTAINER GeoNode Development Team
 
 #
@@ -81,7 +81,7 @@ RUN if [ ! -f /tmp/resources/geoserver.war ]; then \
     && rm -rf /tmp/geoserver
 
 # Custom settings for envronment variables
-ENV GEOSERVER_OPTS "-Xms2G -Xmx2G -XX:MaxPermSize=512m -XX:PermSize=128m -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:ParallelGCThread=4"
+ENV GEOSERVER_OPTS "-Xms2G -Xmx2G -XX:MaxPermSize=512m -XX:PermSize=128m -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:ParallelGCThreads=4"
 
 #-XX:+UseConcMarkSweepGC use this rather than parallel GC?
 ENV JAVA_OPTS "$JAVA_OPTS $GEOSERVER_OPTS "
